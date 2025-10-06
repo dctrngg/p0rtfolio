@@ -9,137 +9,197 @@ import { BiSolidQuoteLeft } from "react-icons/bi";
 
 const Reviews = () => {
   const [activeReview, setActiveReview] = useState(0);
-  const reviewsContainerRef = useRef(null);
+
+  // refs to DOM nodes
+  const copyRef = useRef(null);
+  const authorRef = useRef(null);
+  const sectionRef = useRef(null);
+
   const initialRenderRef = useRef(true);
   const animationInProgressRef = useRef(false);
-  const hasInitialClickRef = useRef(false);
 
+  // initial split on mount (prepare the first text so we have .line .span ready)
+  useEffect(() => {
+    const copyEl = copyRef.current;
+    const authorEl = authorRef.current;
+    if (!copyEl || !authorEl) return;
+
+    // create lines for initial text and wrap each line in a span
+    try {
+      new SplitType(copyEl, { types: "lines", lineClass: "line" });
+      new SplitType(authorEl, { types: "lines", lineClass: "line" });
+    } catch (e) {
+      // ignore if SplitType fails
+    }
+
+    copyEl.querySelectorAll(".line").forEach((line) => {
+      const content = line.innerHTML;
+      line.innerHTML = `<span>${content}</span>`;
+    });
+
+    authorEl.querySelectorAll(".line").forEach((line) => {
+      const content = line.innerHTML;
+      line.innerHTML = `<span>${content}</span>`;
+    });
+
+    // ensure spans are visible (yPercent 0)
+    const initialSpans = [
+      ...copyEl.querySelectorAll(".line span"),
+      ...authorEl.querySelectorAll(".line span"),
+    ];
+    gsap.set(initialSpans, { yPercent: 0 });
+  }, []);
+
+  // animate on activeReview change
   useEffect(() => {
     if (initialRenderRef.current) {
+      // skip the first run (we already set initial split)
       initialRenderRef.current = false;
+      // also make sure section background set for initial state
+      if (sectionRef.current) {
+        sectionRef.current.style.backgroundImage = `url(${reviews[activeReview].image})`;
+      }
       return;
     }
 
     if (animationInProgressRef.current) return;
     animationInProgressRef.current = true;
 
-    const currentReviewItems = document.querySelectorAll(".review-item");
-    if (currentReviewItems.length > 0) {
-      if (!hasInitialClickRef.current) {
-        hasInitialClickRef.current = true;
-        const initialReviewCopy =
-          currentReviewItems[0].querySelector("#review-copy");
-        const initialReviewAuthor =
-          currentReviewItems[0].querySelector("#review-author");
+    const copyEl = copyRef.current;
+    const authorEl = authorRef.current;
 
-        if (initialReviewCopy && initialReviewAuthor) {
-          new SplitType(initialReviewCopy, {
-            types: "lines",
-            lineClass: "line",
-          });
-
-          new SplitType(initialReviewAuthor, {
-            types: "lines",
-            lineClass: "line",
-          });
-
-          initialReviewCopy.querySelectorAll(".line").forEach((line) => {
-            const content = line.innerHTML;
-            line.innerHTML = `<span>${content}</span>`;
-          });
-
-          initialReviewAuthor.querySelectorAll(".line").forEach((line) => {
-            const content = line.innerHTML;
-            line.innerHTML = `<span>${content}</span>`;
-          });
-        }
-      }
-
-      const currentReview = currentReviewItems[currentReviewItems.length - 1];
-      const lineSpans = currentReview.querySelectorAll(".line span");
-
-      gsap.to(lineSpans, {
-        yPercent: -110,
-        duration: 0.7,
-        stagger: 0.05,
-        ease: "power4.in",
-      });
+    if (!copyEl || !authorEl) {
+      animationInProgressRef.current = false;
+      return;
     }
 
-    const newReviewItem = document.createElement("div");
-    newReviewItem.className = "review-item";
+    // animate old spans up
+    const oldSpans = [
+      ...copyEl.querySelectorAll(".line span"),
+      ...authorEl.querySelectorAll(".line span"),
+    ];
 
-    newReviewItem.innerHTML = `
-      <h4 id="review-copy">${reviews[activeReview].copy}</h4>
-      <h4 id="review-author">- ${reviews[activeReview].author}</h4>
-    `;
+    // If no old spans, directly set new text (fallback)
+    if (oldSpans.length === 0) {
+      // set background immediately
+      if (sectionRef.current) {
+        sectionRef.current.style.backgroundImage = `url(${reviews[activeReview].image})`;
+      }
 
-    if (reviewsContainerRef.current) {
-      reviewsContainerRef.current.appendChild(newReviewItem);
+      copyEl.innerText = reviews[activeReview].copy;
+      authorEl.innerText = `- ${reviews[activeReview].author}`;
 
-      const newReviewCopy = newReviewItem.querySelector("#review-copy");
-      const newReviewAuthor = newReviewItem.querySelector("#review-author");
+      try {
+        new SplitType(copyEl, { types: "lines", lineClass: "line" });
+        new SplitType(authorEl, { types: "lines", lineClass: "line" });
+      } catch (e) {}
 
-      new SplitType(newReviewCopy, {
-        types: "lines",
-        lineClass: "line",
-      });
-
-      new SplitType(newReviewAuthor, {
-        types: "lines",
-        lineClass: "line",
-      });
-
-      const newLineSpans = [];
-
-      newReviewCopy.querySelectorAll(".line").forEach((line) => {
+      const newSpans = [];
+      copyEl.querySelectorAll(".line").forEach((line) => {
         const content = line.innerHTML;
         line.innerHTML = `<span>${content}</span>`;
-        newLineSpans.push(line.querySelector("span"));
+        newSpans.push(line.querySelector("span"));
       });
-
-      newReviewAuthor.querySelectorAll(".line").forEach((line) => {
+      authorEl.querySelectorAll(".line").forEach((line) => {
         const content = line.innerHTML;
         line.innerHTML = `<span>${content}</span>`;
-        newLineSpans.push(line.querySelector("span"));
+        newSpans.push(line.querySelector("span"));
       });
 
-      gsap.set(newLineSpans, { yPercent: 110 });
-
-      gsap.to(newLineSpans, {
+      gsap.set(newSpans, { yPercent: 110 });
+      gsap.to(newSpans, {
         yPercent: 0,
         duration: 0.7,
         stagger: 0.1,
         ease: "power4.out",
-        delay: 0.7,
         onComplete: () => {
-          const reviewItems = document.querySelectorAll(".review-item");
-          if (reviewItems.length > 1) {
-            for (let i = 0; i < reviewItems.length - 1; i++) {
-              reviewItems[i].remove();
-            }
-          }
           animationInProgressRef.current = false;
         },
       });
+
+      return;
     }
+
+    // Animate old text out
+    gsap.to(oldSpans, {
+      yPercent: -110,
+      duration: 0.7,
+      stagger: 0.04,
+      ease: "power4.in",
+      onComplete: () => {
+        // After old animation finished, replace text and split new lines
+        // also update background image
+        if (sectionRef.current) {
+          sectionRef.current.style.backgroundImage = `url(${reviews[activeReview].image})`;
+        }
+
+        copyEl.innerText = reviews[activeReview].copy;
+        authorEl.innerText = `- ${reviews[activeReview].author}`;
+
+        // apply SplitType to new content
+        try {
+          new SplitType(copyEl, { types: "lines", lineClass: "line" });
+          new SplitType(authorEl, { types: "lines", lineClass: "line" });
+        } catch (e) {}
+
+        // wrap each new line into <span>
+        const newSpans = [];
+        copyEl.querySelectorAll(".line").forEach((line) => {
+          const content = line.innerHTML;
+          line.innerHTML = `<span>${content}</span>`;
+          newSpans.push(line.querySelector("span"));
+        });
+
+        authorEl.querySelectorAll(".line").forEach((line) => {
+          const content = line.innerHTML;
+          line.innerHTML = `<span>${content}</span>`;
+          newSpans.push(line.querySelector("span"));
+        });
+
+        // set starting position and animate in
+        gsap.set(newSpans, { yPercent: 110 });
+        gsap.to(newSpans, {
+          yPercent: 0,
+          duration: 0.7,
+          stagger: 0.1,
+          ease: "power4.out",
+          onComplete: () => {
+            animationInProgressRef.current = false;
+          },
+        });
+      },
+    });
   }, [activeReview]);
 
   const handleReviewClick = (index) => {
-    if (index !== activeReview && !animationInProgressRef.current) {
-      setActiveReview(index);
-    }
+    if (index === activeReview || animationInProgressRef.current) return;
+    setActiveReview(index);
   };
 
   return (
-    <section className="reviews" ref={reviewsContainerRef}>
+    <section
+      className="reviews"
+      ref={sectionRef}
+      style={{
+        backgroundImage: `url(${reviews[activeReview].image})`,
+        backgroundSize: "cover",
+        backgroundPosition: "center",
+        backgroundRepeat: "no-repeat",
+      }}
+    >
       <h3 id="quote-icon">
         <BiSolidQuoteLeft />
       </h3>
 
       <div className="review-item">
-        <h4 id="review-copy">{reviews[activeReview].copy}</h4>
-        <h4 id="review-author">- {reviews[activeReview].author}</h4>
+        <div className="review-content">
+          <h4 id="review-copy" ref={copyRef}>
+            {reviews[activeReview].copy}
+          </h4>
+          <h4 id="review-author" ref={authorRef}>
+            - {reviews[activeReview].author}
+          </h4>
+        </div>
       </div>
 
       <div className="reviews-list">

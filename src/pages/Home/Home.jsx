@@ -17,7 +17,6 @@ gsap.registerPlugin(ScrollTrigger);
 import Transition from "../../components/Transition/Transition";
 
 const Home = () => {
-  const workItems = Array.isArray(workList) ? workList : [];
   const stickyTitlesRef = useRef(null);
   const titlesRef = useRef([]);
   const stickyWorkHeaderRef = useRef(null);
@@ -70,7 +69,6 @@ const Home = () => {
         },
         1
       )
-
       .to(
         titles[1],
         {
@@ -93,7 +91,6 @@ const Home = () => {
         },
         2.5
       )
-
       .to(
         titles[2],
         {
@@ -132,6 +129,9 @@ const Home = () => {
       window.removeEventListener("resize", handleResize);
     };
   }, []);
+
+  // Debug để chắc chắn workList có href
+  console.log("workList in Home.jsx:", workList);
 
   return (
     <ReactLenis root>
@@ -179,16 +179,16 @@ const Home = () => {
 
         <section ref={homeWorkRef} className="home-work">
           <div className="home-work-list">
-            {workItems.map((work, index) => (
+            {workList.map((work, index) => (
               <Link
-                to="/sample-project"
+                to={work.href}   // sẽ có href vì workList có field này
                 key={work.id}
                 className="home-work-item"
               >
                 <p className="primary sm">{`${String(index + 1).padStart(
                   2,
                   "0"
-                )} - ${String(workItems.length).padStart(2, "0")}`}</p>
+                )} - ${String(workList.length).padStart(2, "0")}`}</p>
                 <h3>{work.title}</h3>
                 <div className="work-item-img">
                   <img src={work.image} alt={work.title} />

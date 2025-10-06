@@ -3,7 +3,9 @@
   width: 100vw;
   height: 100svh;
   padding: 4em 2em;
-  background-color: var(--fg);
+  background-size: cover;        /* fill full */
+  background-position: center;   /* căn giữa */
+  background-repeat: no-repeat;  /* không lặp */
   color: var(--bg);
   text-align: center;
   display: flex;
@@ -11,38 +13,40 @@
   justify-content: center;
   align-items: center;
   gap: 2em;
-}
-
-#review-copy {
-  width: 50%;
-  margin: 0 auto;
+  overflow: hidden;
 }
 
 .review-item {
   width: 100%;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
   text-align: center;
   display: flex;
   flex-direction: column;
   gap: 2em;
   padding: 2em;
+  position: relative;
+  z-index: 2; /* giữ text nổi trên ảnh */
+  color: white; /* đảm bảo đọc được trên nền ảnh */
 }
 
 #quote-icon {
   position: absolute;
-  top: 25%;
+  top: 15%;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 2;
+  color: white;
+  font-size: 2rem;
 }
 
 .reviews-list {
   position: absolute;
-  bottom: 10%;
-  width: 20%;
-  margin: 0 auto;
+  bottom: 5%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: auto;
   display: flex;
   gap: 0.5em;
+  z-index: 3;
 }
 
 .review-thumbnail {
@@ -63,7 +67,7 @@ h4#review-copy,
 h4#review-author {
   font-kerning: none;
   overflow: hidden;
-  line-height: 1 !important;
+  line-height: 1.2 !important;
 }
 
 h4#review-copy .line,
@@ -78,22 +82,4 @@ h4#review-author .line span {
   position: relative;
   display: inline-block;
   will-change: transform;
-}
-
-@media (max-width: 1000px) {
-  .reviews {
-    padding: 4em 1.25em;
-  }
-
-  #review-copy {
-    width: 100%;
-  }
-
-  .reviews-list {
-    width: 50%;
-  }
-
-  .review-item {
-    padding: 1.25em;
-  }
 }

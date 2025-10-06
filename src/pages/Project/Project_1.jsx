@@ -8,7 +8,7 @@ import ReactLenis from "lenis/react";
 
 import Transition from "../../components/Transition/Transition";
 
-const Project = () => {
+const Project_1 = () => {
   return (
     <ReactLenis root>
       <div className="page project">
@@ -35,7 +35,7 @@ const Project = () => {
 
         <section className="project-banner-img">
           <div className="project-banner-img-wrapper">
-            <ParallaxImage src="/project/banner.jpg" alt="" />
+            <ParallaxImage src="/work/work-1.webp" alt="" />
           </div>
         </section>
 
@@ -65,27 +65,27 @@ const Project = () => {
               Category
             </AnimatedCopy>
             <AnimatedCopy tag="h4" animateOnScroll={true}>
-              Short Film
+              Three JS - React - GSAP
             </AnimatedCopy>
           </div>
 
-          <div className="details">
+          {/* <div className="details">
             <AnimatedCopy tag="p" animateOnScroll={true} className="primary sm">
               Running Time
             </AnimatedCopy>
             <AnimatedCopy tag="h4" animateOnScroll={true}>
               6:30
             </AnimatedCopy>
-          </div>
+          </div> */}
 
-          <div className="details">
+          {/* <div className="details">
             <AnimatedCopy tag="p" animateOnScroll={true} className="primary sm">
               Directed by
             </AnimatedCopy>
             <AnimatedCopy tag="h4" animateOnScroll={true}>
               Nico Palmer
             </AnimatedCopy>
-          </div>
+          </div> */}
         </section>
 
         <section className="project-images">
@@ -122,7 +122,7 @@ const Project = () => {
           </div>
         </section>
 
-        <section className="project-details">
+        {/* <section className="project-details">
           <div className="details">
             <AnimatedCopy tag="p" animateOnScroll={true} className="primary sm">
               Editor
@@ -168,7 +168,7 @@ const Project = () => {
             </AnimatedCopy>
           </div>
         </section>
-         
+          */}
 
         <section className="next-project">
           <AnimatedCopy tag="p" animateOnScroll={true} className="primary sm">
@@ -194,4 +194,4 @@ const Project = () => {
   );
 };
 
-export default Transition(Project);
+export default Transition(Project_1);
