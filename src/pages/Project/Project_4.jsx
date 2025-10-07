@@ -8,7 +8,7 @@ import ReactLenis from "lenis/react";
 
 import Transition from "../../components/Transition/Transition";
 
-const Project_2 = () => {
+const Project_4 = () => {
   return (
     <ReactLenis root>
       <div className="page project">
@@ -18,16 +18,16 @@ const Project_2 = () => {
             animateOnScroll={false}
             className="primary sm"
           >
-            concert ticket sales website
+            studio
           </AnimatedCopy>
           <AnimatedCopy tag="h2" delay={1}>
-            HUNG VUONG CONCERT: UNFOLD
+            Negative - film
           </AnimatedCopy>
         </section>
 
         <section className="project-link">
           <a
-            href="https://hungvuongconcert.com/"
+            href="https://negative-sand.vercel.app/"
             className="project-button"
             target="_blank"
             rel="noopener noreferrer"
@@ -39,8 +39,8 @@ const Project_2 = () => {
         <section className="project-banner-img">
           <div className="project-banner-img-wrapper">
             <ParallaxImage
-              src="/work/work-2.webp"
-              alt="Hung Vuong Concert Banner"
+              src="/work/work-4-1.webp"
+              alt="Terrene Banner"
               speed={0.5}
               scale={1.1}
             />
@@ -53,7 +53,10 @@ const Project_2 = () => {
               Overview
             </AnimatedCopy>
             <AnimatedCopy tag="h4" animateOnScroll={true}>
-              A modern online ticketing platform for music events, Hung Vuong Concert: Unfold, offers a seamless booking experience and an engaging, interactive interface.
+
+
+              We Shoot. We fracture. We reform.We are Negative.
+
             </AnimatedCopy>
           </div>
 
@@ -71,7 +74,7 @@ const Project_2 = () => {
               Category
             </AnimatedCopy>
             <AnimatedCopy tag="h4" animateOnScroll={true}>
-              HTML - CSS - JS
+              HTML - CSS - JS - GSAP
             </AnimatedCopy>
           </div>
         </section>
@@ -80,27 +83,27 @@ const Project_2 = () => {
           <div className="project-images-container">
             <div className="project-img">
               <div className="project-img-wrapper">
-                <ParallaxImage src="/project/1/1.webp" alt="Project screenshot 1" />
+                <ParallaxImage src="/work/work-4-2.webp" alt="Project screenshot 1" />
               </div>
             </div>
 
             <div className="project-img">
               <div className="project-img-wrapper">
-                <ParallaxImage src="/project/1/2.webp" alt="Project screenshot 2" />
+                <ParallaxImage src="/work/work-4-3.webp" alt="Project screenshot 2" />
               </div>
             </div>
 
             <div className="project-img">
               <div className="project-img-wrapper">
-                <ParallaxImage src="/project/1/3.webp" alt="Project screenshot 3" />
+                <ParallaxImage src="/work/work-4-4.webp" alt="Project screenshot 3" />
               </div>
             </div>
           </div>
         </section>
 
-        <section className="next-project">
+        {/* <section className="next-project">
           <AnimatedCopy tag="p" animateOnScroll={true} className="primary sm">
-            03 - 04
+            04 - 04
           </AnimatedCopy>
           <AnimatedCopy tag="h3" animateOnScroll={true}>
             Next
@@ -109,7 +112,7 @@ const Project_2 = () => {
           <div className="next-project-img">
             <div className="next-project-img-wrapper">
               <ParallaxImage
-                src="/work/work-3-1.webp"
+                src="/work/work-2.jpg"
                 alt="Market Pulse Project"
                 speed={0.3}
                 scale={1.05}
@@ -118,12 +121,12 @@ const Project_2 = () => {
           </div>
 
           <AnimatedCopy tag="h4" animateOnScroll={true}>
-            Terrene
+            The end
           </AnimatedCopy>
-        </section>
+        </section> */}
       </div>
     </ReactLenis>
   );
 };
 
-export default Transition(Project_2);
+export default Transition(Project_4);

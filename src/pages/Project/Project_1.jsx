@@ -24,7 +24,7 @@ const Project_1 = () => {
             Fragments of Light
           </AnimatedCopy>
         </section>
-          <section className="project-link">
+        <section className="project-link">
           <a
             href="https://dctrngg.github.io/ewedinvite/web6/"   // link chi tiết project
             className="project-button"
@@ -172,7 +172,7 @@ const Project_1 = () => {
 
         <section className="next-project">
           <AnimatedCopy tag="p" animateOnScroll={true} className="primary sm">
-            02 - 05
+            02 - 04
           </AnimatedCopy>
           <AnimatedCopy tag="h3" animateOnScroll={true}>
             Next
@@ -188,7 +188,7 @@ const Project_1 = () => {
             Market Pulse
           </AnimatedCopy>
         </section>
-        
+
       </div>
     </ReactLenis>
   );

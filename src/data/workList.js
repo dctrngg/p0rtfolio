@@ -15,25 +15,25 @@ const workList = [
   },
   {
     id: 3,
-    title: "The Stillness Project",
-    category: "Experimental",
-    image: "/work/work-3.jpg",
-    href: "/stillness-project",
+    title: "TERRENE",
+    category: "industry",
+    image: "/work/work-3-1.webp",
+    href: "/terrene",
   },
   {
     id: 4,
-    title: "Chroma/City",
-    category: "Branded Content",
-    image: "/work/work-4.jpg",
-    href: "/chroma-city",
+    title: "Negative film",
+    category: "Film",
+    image: "/work/work-4-3.webp",
+    href: "/negative-film",
   },
-  {
-    id: 5,
-    title: "Echoes of Silence",
-    category: "Narrative Drama",
-    image: "/work/work-5.jpg",
-    href: "/echoes-of-silence",
-  },
+  // {
+  //   id: 5,
+  //   title: "Echoes of Silence",
+  //   category: "Narrative Drama",
+  //   image: "/work/work-5.jpg",
+  //   href: "/echoes-of-silence",
+  // },
 ];
 
 export default workList;

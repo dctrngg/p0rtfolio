@@ -10,7 +10,7 @@ const Footer = () => {
         <div className="footer-contact">
           <h3>
             Let’s Collaborate <br />
-            film<span>@</span>nicopalmer.com
+            dctrng.work<span>@</span>gmail.com
           </h3>
 
           <p className="secondary">
@@ -33,11 +33,11 @@ const Footer = () => {
             <span>Work</span>
             <span>&#8594;</span>
           </Link>
-
+          {/* 
           <Link to="/about" className="footer-nav-item">
             <span>About</span>
             <span>&#8594;</span>
-          </Link>
+          </Link> */}
 
           <Link to="/contact" className="footer-nav-item">
             <span>Contact</span>
@@ -52,13 +52,13 @@ const Footer = () => {
       </div>
       <div className="footer-row">
         <div className="footer-header">
-          <h1>Nico</h1>
-          <h1>Palmer</h1>
+          <h1>duc</h1>
+          <h1>trung</h1>
         </div>
 
         <div className="footer-copyright-line">
-          <p className="primary sm">&copy; Nico Palmer 2025</p>
-          <p className="primary sm">Website Template by Codegrid</p>
+          <p className="primary sm">&copy; dctrng 2025</p>
+
         </div>
       </div>
     </div>

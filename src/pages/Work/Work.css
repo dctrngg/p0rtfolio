@@ -15,6 +15,15 @@
   z-index: -1;
 }
 
+/* Ảnh chính của carousel — đảm bảo không bị vỡ hoặc méo */
+.work-slider-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Giữ đúng tỉ lệ, cắt phần dư */
+  object-position: center; /* Căn giữa ảnh */
+  display: block;
+}
+
 .work-items-preview-container {
   position: fixed;
   left: 50%;
@@ -33,6 +42,17 @@
   overflow: hidden;
   cursor: pointer;
   transition: border 0.3s ease-in-out;
+  flex-shrink: 0; /* Ngăn thumbnail bị co lại */
+  aspect-ratio: 16/9; /* Giữ tỷ lệ cho thumbnail */
+}
+
+/* Ảnh preview nhỏ ở dưới */
+.work-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Giữ tỉ lệ cho thumbnail */
+  object-position: center;
+  display: block;
 }
 
 .work-item.active {
@@ -50,6 +70,12 @@
   gap: 1em;
   width: 100%;
   padding: 1.25em;
+  pointer-events: none; /* Cho phép click qua overlay */
+}
+
+.carousel-info a,
+.carousel-info .project-title-container {
+  pointer-events: auto; /* Cho phép click vào link/title */
 }
 
 .carousel-description,

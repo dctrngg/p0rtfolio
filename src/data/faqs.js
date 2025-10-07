@@ -1,52 +1,53 @@
+
 export const faqItems = [
   {
-    question: "What types of films do you specialize in?",
+    question: "What kind of projects do you specialize in?",
     answer:
-      "I specialize in narrative short films, documentaries, and branded content. My focus is on strong storytelling and cinematic visuals.",
+      "I specialize in building modern, responsive web applications using technologies like React, Next.js, and TypeScript. My focus is on performance, clean code, and elegant UI/UX.",
   },
   {
-    question: "Are you available for freelance or commissioned work?",
+    question: "Are you available for freelance or contract work?",
     answer:
-      "Yes, I’m open to freelance and commissioned projects. Feel free to reach out through the contact form to discuss your vision.",
+      "Yes, I’m available for both freelance and long-term contract projects. You can reach out through the contact form to discuss your requirements.",
   },
   {
-    question: "Do you handle both filming and post-production?",
+    question: "Do you handle both design and development?",
     answer:
-      "Absolutely. I provide end-to-end services, including cinematography, editing, color grading, and sound design.",
+      "Primarily, I focus on front-end development, but I often collaborate with designers or handle basic UI design tasks using tools like Figma or Adobe XD.",
   },
   {
-    question: "What equipment do you use?",
+    question: "What technologies do you use?",
     answer:
-      "I shoot with industry-standard gear including 4K cameras, professional audio equipment, and high-end editing software.",
+      "My main stack includes React, Next.js, TypeScript, and Tailwind CSS. I also work with APIs, Node.js for simple back-end integrations, and modern build tools like Vite or Webpack.",
   },
   {
-    question: "Can you travel for shoots?",
+    question: "Can you work with existing projects or codebases?",
     answer:
-      "Yes, I’m available for both local and international projects. Travel logistics can be discussed during the project planning phase.",
+      "Absolutely. I’m comfortable joining ongoing projects, refactoring legacy code, or improving performance and UI consistency.",
   },
   {
-    question: "Do you collaborate with other creatives?",
+    question: "Do you collaborate with other developers or designers?",
     answer:
-      "Definitely. I often work with writers, actors, musicians, and other filmmakers to bring projects to life collaboratively.",
+      "Definitely. I enjoy working in collaborative teams with designers, back-end developers, and project managers to deliver cohesive digital experiences.",
   },
   {
     question: "How long does it take to complete a project?",
     answer:
-      "Timelines vary by scope, but short films typically take 3–6 weeks. We’ll set a schedule that aligns with your goals and deadlines.",
+      "It depends on the project scope. A small landing page might take a few days, while a full web app could take several weeks. Timelines are always discussed and planned clearly in advance.",
   },
   {
-    question: "Can you help develop a concept or script?",
+    question: "Can you help with website optimization or maintenance?",
     answer:
-      "Yes, I offer creative development services including concept ideation, scripting, and storyboarding to shape your project from scratch.",
+      "Yes, I offer ongoing support for performance optimization, SEO improvements, accessibility fixes, and maintaining existing projects.",
   },
   {
-    question: "Where can I view your previous work?",
+    question: "Where can I see your previous work?",
     answer:
-      "You can explore my film projects on the portfolio page. Each listing includes a short description, trailer, or full version when available.",
+      "You can browse my portfolio page to see featured projects, including live demos and GitHub repositories for selected works.",
   },
   {
     question: "How can I contact you for a project?",
     answer:
-      "You can use the contact form or email listed on the site. I aim to respond to all inquiries within 48 hours.",
+      "You can reach out via the contact form or email provided on this website. I usually respond within 24–48 hours.",
   },
 ];
