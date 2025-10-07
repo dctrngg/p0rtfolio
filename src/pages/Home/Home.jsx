@@ -201,28 +201,7 @@ const Home = () => {
 
         <Reviews />
 
-        <section className="hobbies">
-          <div className="hobby">
-            <AnimatedCopy tag="h4" animateOnScroll={true}>
-              Camera
-            </AnimatedCopy>
-          </div>
-          <div className="hobby">
-            <AnimatedCopy tag="h4" animateOnScroll={true}>
-              Editing
-            </AnimatedCopy>
-          </div>
-          <div className="hobby">
-            <AnimatedCopy tag="h4" animateOnScroll={true}>
-              Story
-            </AnimatedCopy>
-          </div>
-          <div className="hobby">
-            <AnimatedCopy tag="h4" animateOnScroll={true}>
-              Sound
-            </AnimatedCopy>
-          </div>
-        </section>
+        
 
         <ContactForm />
         <Footer />

@@ -7,6 +7,7 @@ import Menu from "./components/Menu/Menu";
 import Home from "./pages/Home/Home";
 import Work from "./pages/Work/Work";
 import Project_1 from "./pages/Project/Project_1";
+import Project_2 from "./pages/Project/Project_2";
 import About from "./pages/About/About";
 import FAQ from "./pages/FAQ/FAQ";
 import Contact from "./pages/Contact/Contact";
@@ -40,6 +41,7 @@ function App() {
           <Route path="/faq" element={<FAQ />} />
           <Route path="/work" element={<Work />} />
           <Route path="/sample-project" element={<Project_1 />} />
+          <Route path="/hungvuongconcert" element={<Project_2 />} />
         </Routes>
       </AnimatePresence>
     </>

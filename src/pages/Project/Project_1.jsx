@@ -26,7 +26,7 @@ const Project_1 = () => {
         </section>
           <section className="project-link">
           <a
-            href="/fragments-of-light"   // link chi tiết project
+            href="https://dctrngg.github.io/ewedinvite/web6/"   // link chi tiết project
             className="project-button"
           >
             View Project
@@ -88,7 +88,7 @@ const Project_1 = () => {
           </div> */}
         </section>
 
-        <section className="project-images">
+        {/* <section className="project-images">
           <div className="project-images-container">
             <div className="project-img">
               <div className="project-img-wrapper">
@@ -120,7 +120,7 @@ const Project_1 = () => {
               </div>
             </div>
           </div>
-        </section>
+        </section> */}
 
         {/* <section className="project-details">
           <div className="details">
@@ -180,7 +180,7 @@ const Project_1 = () => {
 
           <div className="next-project-img">
             <div className="next-project-img-wrapper">
-              <ParallaxImage src="/work/work-2.jpg" alt="" />
+              <ParallaxImage src="/work/work-2.webp" alt="" />
             </div>
           </div>
 

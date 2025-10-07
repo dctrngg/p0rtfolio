@@ -8,10 +8,10 @@ const workList = [
   },
   {
     id: 2,
-    title: "Markets Pulse",
-    category: "Documentary",
-    image: "/work/work-2.jpg",
-    href: "/market-pulse",
+    title: "Hung Vuong Concert - Website",
+    category: "Charity",
+    image: "/work/work-2.webp",
+    href: "/hungvuongconcert",
   },
   {
     id: 3,
