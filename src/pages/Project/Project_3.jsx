@@ -109,8 +109,8 @@ const Project_3 = () => {
           <div className="next-project-img">
             <div className="next-project-img-wrapper">
               <ParallaxImage
-                src="/work/work-2.jpg"
-                alt="Market Pulse Project"
+                src="/work/work-4-1.webp"
+                alt="Negative Film"
                 speed={0.3}
                 scale={1.05}
               />

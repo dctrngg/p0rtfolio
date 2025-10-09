@@ -1,7 +1,7 @@
 const reviews = [
   {
     id: 1,
-    copy: "Playing the keyboard has always been one of my favorite ways to relax. The moment my fingers touch the keys, everything else fades away. ",
+    copy: "hobbies.",
     author: "",
     image: "/reviews/01.webp",
   },
@@ -16,6 +16,12 @@ const reviews = [
     copy: "Transition lite.",
     author: "",
     image: "/reviews/03.webp",
+  },
+  {
+    id: 4,
+    copy: "Joining the Hùng Vương Concert charity journey has been one of the most meaningful experiences of my life. Through music and teamwork, we were able to bring joy and hope to those in need, reminding me how powerful compassion can be.",
+    author: "",
+    image: "/reviews/04.webp",
   },
 ];
 
